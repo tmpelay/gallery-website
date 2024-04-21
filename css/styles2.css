@@ -95,38 +95,28 @@ h1 {
 
 /* -- SLIDER SECTION -- */
 
-.slider {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  gap: 28px;
-}
-
-.slider__wrapper {
+.slider__images {
+  position: relative;
   margin-top: 20px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  overflow-x: hidden;
   height: 420px;
+  background-color: red;
 }
 
-.slider__wrapper input {
-  display: none;
-}
-
-.slider__wrapper img {
+.slider__image {
+  position: relative;
   height: 280px;
   opacity: 0.8;
   transition: height 0.2s, opacity 0.6s, margin 0.2s;
   cursor: pointer;
 }
 
-.slider__wrapper img:hover {
+.slider__image:hover {
   opacity: 1;
 }
 
-.slider__wrapper input[type="radio"]:checked + label img {
+.image--focused {
   height: 420px;
   opacity: 1;
 }
@@ -152,41 +142,4 @@ h1 {
 .img-info__description {
   font-size: 1.1em;
   color: #707070;
-}
-
-/* -- GALLERY SECTION -- */
-
-.gallery__container {
-  display: flex;
-  width: 100%;
-  max-width: 1024px;
-  margin: 200px auto;
-  padding: 0 6px;
-  gap: 4px;
-}
-
-.gallery__column {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  gap: 2px;
-}
-
-.gallery__column img {
-  width: 100%;
-  cursor: pointer;
-  opacity: 0.92;
-  transition: 0.2s opacity;
-}
-
-.gallery__column img:hover {
-  opacity: 1;
-}
-
-/* -- GALLETY QUERIES -- */
-
-@media screen and (max-width: 800px) {
-  .gallery__container {
-    flex-direction: column;
-  }
 }
