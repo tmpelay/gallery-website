@@ -96,16 +96,21 @@ h1 {
 /* -- SLIDER SECTION -- */
 
 .slider__images {
-  position: relative;
-  margin-top: 20px;
+  margin: 20px 0;
+  padding: 0 100px;
   display: flex;
   align-items: center;
+  overflow-x: scroll;
   height: 420px;
-  background-color: red;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.slider__images::-webkit-scrollbar {
+  display: none;
 }
 
 .slider__image {
-  position: relative;
   height: 280px;
   opacity: 0.8;
   transition: height 0.2s, opacity 0.6s, margin 0.2s;
@@ -130,7 +135,6 @@ h1 {
 }
 
 .img-info__container {
-  display: none;
   text-align: center;
 }
 
