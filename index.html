@@ -4,140 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/styles.css" />
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <title>Gallery Website</title>
+    <title>Gallery Webite | Unsplash API</title>
   </head>
   <body>
-    <header id="home" class="header">
-      <div class="header__top">
-        <h1>#Gallery</h1>
-      </div>
-      <div class="header__nav-wrapper">
-        <input type="checkbox" id="open-menu" />
-        <label for="open-menu" class="header__nav-menu" role="button"
-          ><i class="bx bx-menu"></i
-        ></label>
-        <nav class="header__nav">
-          <ul class="nav__list">
-            <li class="nav__item">
-              <a href="#home" class="nav__link">HOME</a>
-            </li>
-            <li class="nav__item">
-              <a href="#gallery" class="nav__link">GALLERY</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-    <main class="slider">
-      <div class="slider__wrapper">
-        <input class="slider__image" type="radio" name="slider" id="img-1" />
-        <label for="img-1">
-          <img src="images/library.jpg" alt="library" />
-          <div class="img-info__container">
-            <h2 class="img-info__name">Library</h2>
-            <p class="img-info__description">A beautifull library</p>
-          </div>
-        </label>
-        <input class="slider__image" type="radio" name="slider" id="img-2" />
-        <label for="img-2">
-          <img src="images/peak-stars.jpg" alt="peak-stars" />
-          <div class="img-info__container">
-            <h2 class="img-info__name">Peak Stars</h2>
-            <p class="img-info__description">
-              A night sky view above the mountain
-            </p>
-          </div>
-        </label>
-        <input class="slider__image" type="radio" name="slider" id="img-3" />
-        <label for="img-3">
-          <img src="images/peak.jpg" alt="peak" />
-          <div class="img-info__container">
-            <h2 class="img-info__name">Peak</h2>
-            <p class="img-info__description">The highest peak</p>
-          </div>
-        </label>
-        <input
-          class="slider__image"
-          type="radio"
-          name="slider"
-          id="img-4"
-          checked
-        />
-        <label for="img-4">
-          <img src="images/river.jpg" alt="river" />
-          <div class="img-info__container">
-            <h2 class="img-info__name">River</h2>
-            <p class="img-info__description">A river in the valley</p>
-          </div>
-        </label>
-        <input class="slider__image" type="radio" name="slider" id="img-5" />
-        <label for="img-5">
-          <img src="images/sailboat.jpg" alt="sailboat" />
-          <div class="img-info__container">
-            <h2 class="img-info__name">Silboat</h2>
-            <p class="img-info__description">The sailor's viewpoint</p>
-          </div>
-        </label>
-        <input class="slider__image" type="radio" name="slider" id="img-6" />
-        <label for="img-6">
-          <img src="images/sea.jpg" alt="sea" />
-          <div class="img-info__container">
-            <h2 class="img-info__name">Sea</h2>
-            <p class="img-info__description">The blue sea</p>
-          </div>
-        </label>
-        <label class="slider__image" type="radio" name="slider" id="img-7" />
-        <label for="img-7">
-          <img src="images/universe.jpg" alt="universe" />
-          <div class="img-info__container">
-            <h2 class="img-info__name">Universe</h2>
-            <p class="img-info__description">The magnificence of univerce</p>
-          </div>
-        </label>
-      </div>
-    </main>
-    <section id="gallery" class="gallery__container">
-      <div class="gallery__column">
-        <label for="img-1">
-          <img src="images/library.jpg" alt="Library" />
-        </label>
-        <label for="img-2">
-          <img src="images/peak-stars.jpg" alt="Peak Stars" />
-        </label>
-      </div>
-      <div class="gallery__column">
-        <label for="img-3">
-          <img src="images/peak.jpg" alt="Peak" />
-        </label>
-        <label for="img-4">
-          <img src="images/river.jpg" alt="River" />
-        </label>
-        <label for="img-5">
-          <img src="images/sailboat.jpg" alt="Sailboat" />
-        </label>
-      </div>
-      <div class="gallery__column">
-        <label for="img-6">
-          <img src="images/sea.jpg" alt="Sea" />
-        </label>
-        <label for="img-7">
-          <img src="images/universe.jpg" alt="Universe" />
-        </label>
-      </div>
-    </section>
+    <form method="GET" action="javascript:listImages()" class="form">
+      <input type="text" name="search" id="search-input" required />
+      <input type="submit" value="search" />
+    </form>
+    <div id="image-list" class="image-list"></div>
+    <script src="main.js"></script>
   </body>
 </html>
