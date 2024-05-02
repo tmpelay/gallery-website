@@ -1,0 +1,192 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Montserrat, Roboto, sans-serif;
+  background-color: #fafafa;
+  color: #050505;
+}
+
+/* -- HEADER SECTION -- */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 24px;
+  container-name: header;
+  container-type: inline-size;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.header__nav-wrapper {
+  width: 100%;
+  text-align: center;
+  font-size: 1em;
+}
+
+.header__nav-wrapper input {
+  display: none;
+}
+
+.header__nav-wrapper input:checked ~ .header__nav {
+  display: flex;
+}
+
+.header__nav {
+  display: flex;
+  justify-content: center;
+}
+
+.header__nav-menu {
+  color: #707070;
+  cursor: pointer;
+  display: none;
+}
+
+.nav__list {
+  display: flex;
+  list-style: none;
+}
+
+.nav__link {
+  text-decoration: none;
+  color: #707070;
+  padding: 12px 22px;
+  display: inline-block;
+}
+
+.nav__link:hover,
+.header__nav-menu:hover {
+  color: inherit;
+}
+
+/* -- HEADER QUERIES -- */
+
+@container header (max-width: 405px) {
+  .header__nav {
+    display: none;
+    height: auto;
+    width: auto;
+    margin-top: 20px;
+    background-color: #f5f5f5;
+  }
+
+  .header__nav-menu {
+    display: block;
+  }
+
+  .nav__list {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* -- SLIDER SECTION -- */
+
+.slider {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 28px;
+}
+
+.slider__wrapper {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  height: 420px;
+}
+
+.slider__wrapper input {
+  display: none;
+}
+
+.slider__wrapper img {
+  height: 280px;
+  opacity: 0.8;
+  transition: height 0.2s, opacity 0.6s, margin 0.2s;
+  cursor: pointer;
+}
+
+.slider__wrapper img:hover {
+  opacity: 1;
+}
+
+.slider__wrapper input[type="radio"]:checked + label img {
+  height: 420px;
+  opacity: 1;
+}
+
+.slider__wrapper input[type="radio"]:checked + label .img-info__container {
+  display: block;
+  position: absolute;
+  margin-top: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.img-info__container {
+  display: none;
+  text-align: center;
+}
+
+.img-info__name {
+  font-size: 2rem;
+  margin-bottom: 6px;
+}
+
+.img-info__description {
+  font-size: 1.1em;
+  color: #707070;
+}
+
+/* -- GALLERY SECTION -- */
+
+.gallery__container {
+  display: flex;
+  width: 100%;
+  max-width: 1024px;
+  margin: 200px auto;
+  padding: 0 6px;
+  gap: 4px;
+}
+
+.gallery__column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 2px;
+}
+
+.gallery__column img {
+  width: 100%;
+  cursor: pointer;
+  opacity: 0.92;
+  transition: 0.2s opacity;
+}
+
+.gallery__column img:hover {
+  opacity: 1;
+}
+
+/* -- GALLETY QUERIES -- */
+
+@media screen and (max-width: 800px) {
+  .gallery__container {
+    flex-direction: column;
+  }
+}

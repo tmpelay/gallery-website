@@ -1,42 +1,27 @@
-const imageDescriptions = [
-  ["Library", "A beautifull Library"],
-  ["Peak Stars", "A night sky view above the mountain"],
-];
+const ACCESS_TOKEN = "a95e8uruYvj9kfbP6MUO9Fj_hyMEQm_EO6Pg7n1Gd08";
+const imageList = document.getElementById("image-list");
 
-const initSlider = () => {
-  const images = document.querySelectorAll(".slider__image");
-  const slider = document.querySelector(".slider__images");
-
-  const imgTitle = document.querySelector(".img-info__name");
-  const imgDescription = document.querySelector(".img-info__description");
-  const imgLeft = [];
-
-  images.forEach((image) => {
-    imgLeft.push(image.getBoundingClientRect().left);
-  });
-
-  images.forEach((image) => {
-    image.addEventListener("click", () => {
-      images.forEach((img) => {
-        if (img.classList.contains("image--focused")) {
-          img.classList.remove("image--focused");
-        }
-      });
-
-      image.classList.add("image--focused");
-      imgTitle.innerHTML = imageDescriptions[image.id][0];
-      imgDescription.innerHTML = imageDescriptions[image.id][1];
-
-      const imgRect = image.getBoundingClientRect();
-      const sliderRect = slider.getBoundingClientRect();
-      const scrollAmount = window.innerWidth / 2 - imgRect.left;
-
-      imgLeft[image.id] += scrollAmount;
-
-      slider.style.transform = `translateX(${imgLeft[image.id]}px)`;
-      console.log(imgLeft[image.id]);
+const searchImages = async (search) => {
+  return fetch(
+    `https://api.unsplash.com/search/photos/?query=${search}&client_id=${ACCESS_TOKEN}`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      return data.results;
     });
-  });
 };
 
-window.addEventListener("load", initSlider);
+const listImages = async () => {
+  const searchValue = document.getElementById("search-input").value;
+  let foundImages = await searchImages(searchValue);
+
+  imageList.innerHTML = "";
+
+  for (image in foundImages) {
+    console.log(foundImages[image]);
+    let newImage = document.createElement("img");
+    newImage.src = foundImages[image].urls.regular;
+    newImage.alt = foundImages[image].alt_description;
+    imageList.appendChild(newImage);
+  }
+};
