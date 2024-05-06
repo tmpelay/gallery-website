@@ -30,8 +30,9 @@ body {
 .main {
   display: grid;
   place-content: center;
-  width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  container-name: main;
+  container-type: inline-size;
 }
 
 h1 {
@@ -44,6 +45,7 @@ h1 {
 .main__text {
   text-align: center;
   font-size: 1.2rem;
+  margin-bottom: 40px;
 }
 
 .main__text-link {
@@ -52,9 +54,17 @@ h1 {
   font-weight: 500;
 }
 
+/* -- MAIN QUERIES -- */
+
+@container main (max-width: 640px) {
+  h1 {
+    font-size: 4.2rem;
+  }
+}
+
 .main__form {
   width: fit-content;
-  margin: 40px auto 0;
+  margin: auto;
   display: flex;
   justify-content: center;
   padding: 10px;
@@ -63,7 +73,7 @@ h1 {
 }
 
 .main__form:hover .form__input {
-  width: 600px;
+  width: 260px;
   padding-left: 15px;
 }
 
@@ -79,7 +89,7 @@ h1 {
 }
 
 .form__input:focus {
-  width: 600px;
+  width: 260px;
   padding-left: 15px;
 }
 
@@ -101,15 +111,59 @@ h1 {
   color: var(--fg-color);
 }
 
+/* -- SEARCH PAGE -- */
+
+.search-main {
+  display: grid;
+  place-content: center;
+  container-name: main;
+  container-type: inline-size;
+  padding-top: 60px;
+}
+
+.main__bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 85%;
+  margin: auto;
+}
+
+.main__bar-link {
+  font-size: 3em;
+  text-decoration: none;
+  color: inherit;
+}
+
 /* -- IMAGE LIST -- */
 
 .main__image-list {
   columns: 3;
   column-gap: 10px;
-  margin: 80px;
+  margin: 60px 80px;
 }
 
 .main__image-list img {
   width: 100%;
   margin: 3px 0;
+}
+
+/* -- FOOTER SECTION -- */
+
+.footer {
+  display: grid;
+  place-content: center;
+  padding: 80px 100px;
+  background-color: var(--fg-color);
+  color: var(--bg-color);
+}
+
+.footer__text {
+  text-align: center;
+}
+
+.footer__link {
+  text-decoration: none;
+  font-weight: 500;
+  color: inherit;
 }

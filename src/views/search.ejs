@@ -3,16 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/styles.css" />
+    <%- include("partials/links.ejs") %>
     <title>Gallery Webite | Unsplash API</title>
   </head>
   <body>
-    <main class="main">
+    <main class="search-main">
+      <div class="main__bar">
+        <a class="main__bar-link" href="https://unsplash.com/" target="_blank"
+          ><i class="bx bxl-unsplash"></i
+        ></a>
+        <%- include("partials/form.ejs") %>
+        <a
+          class="main__bar-link"
+          href="https://github.com/tmpelay"
+          target="_blank"
+          ><i class="bx bxl-github"></i
+        ></a>
+      </div>
       <div class="main__image-list">
         <% for (let i = 0; i < images.length; i++) { %>
         <img src="<%= images[i][0] %>" />
         <% }; %>
       </div>
     </main>
+    <footer class="footer">
+      <p class="footer__text">
+        Thanks for see this project! Here is my
+        <a
+          class="footer__link"
+          href="https://tmpelay.github.io/web-portfolio/"
+          target="_blank"
+          >Portfolio<i class="bx bx-link-external"></i
+        ></a>
+      </p>
+    </footer>
   </body>
 </html>
