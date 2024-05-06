@@ -74,7 +74,13 @@ h1 {
   border: none;
   outline: none;
   font-size: 1.2em;
+  border-radius: 30px;
   transition: width 0.4s;
+}
+
+.form__input:focus {
+  width: 600px;
+  padding-left: 15px;
 }
 
 .form__button {
@@ -91,13 +97,19 @@ h1 {
   color: var(--fg-color);
 }
 
-.image-list {
+.form__button:active {
+  color: var(--fg-color);
+}
+
+/* -- IMAGE LIST -- */
+
+.main__image-list {
   columns: 3;
   column-gap: 10px;
   margin: 80px;
 }
 
-.image-list img {
+.main__image-list img {
   width: 100%;
   margin: 3px 0;
 }

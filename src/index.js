@@ -18,7 +18,6 @@ app.get("/", (req, res) => {
 });
 
 app.get("/search", async (req, res) => {
-  console.log(req.url.split);
   const searchImages = async (search) => {
     return fetch(
       `https://api.unsplash.com/search/photos/?query=${search}&client_id=${process.env.ACCESS_TOKEN}`
@@ -29,7 +28,15 @@ app.get("/search", async (req, res) => {
       });
   };
 
-  res.json(await searchImages("zelda"));
+  const search = req.url.split("=")[1];
+  const result = await searchImages(search);
+
+  const images = [];
+  result.forEach((image) => {
+    images.push([image.urls.regular, image.alt_description]);
+  });
+
+  res.render("search", { images: images });
 });
 
 app.listen(PORT, () => {
